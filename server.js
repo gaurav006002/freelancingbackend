@@ -36,7 +36,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/freelanci
 })
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => console.error('MongoDB connection error:', err));
-
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running successfully on Render!");
+});
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/jobs', require('./routes/jobs'));
